@@ -27,23 +27,24 @@ public class CarApp2 {
 		cars.add(c4);
 		cars.add(c5);
 		cars.add(c6);
-		String cont = "y";
 
-		while (cont.equalsIgnoreCase("y")) {
+		while (true) {
 			printMenu(cars);
 			
 			//use Validator to be sure we get the right number
-			userNum = Validator.getInt(scan, "Which car would you like? (Enter Menu #) ", 1, cars.size());
+			userNum = Validator.getInt(scan, "Which car would you like? (Enter Menu #) ", 1, cars.size() + 1);
 			
-			System.out.println("");
-			System.out.println(cars.get(userNum - 1).toString());
-			System.out.println("");
+			if(userNum == cars.size() + 1) {
+				break;
+			} else {
+				System.out.println("");
+				System.out.println(cars.get(userNum - 1).toString());
+				System.out.println("");
+			}
+			
 			
 			buyTheCar(scan, userNum, cars);
 			
-			// offer to let user look and buy another car
-			System.out.println("Would you like to look at another car? (y/n)");
-			cont = scan.nextLine();
 		}
 		System.out.println("");
 		System.out.println("Goodbye. Have a great day! ");
@@ -53,6 +54,7 @@ public class CarApp2 {
 		for (int i = 0; i < menu.size(); i++) {
 			System.out.println((i + 1) + ". " + menu.get(i).toString());
 		}
+		System.out.println((menu.size()+ 1) +". Quit");
 	}
 	// offer to let user buy the car and give feedback if they do.
 	public static void buyTheCar (Scanner sc, int userNum, ArrayList<Car> cars) {

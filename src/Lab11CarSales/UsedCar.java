@@ -4,6 +4,7 @@ public class UsedCar extends Car{
 	
 	private double mileage;
 
+	// used eclipse to put out contructors, getters and setters
 	public UsedCar() {
 		super();
 
@@ -22,6 +23,7 @@ public class UsedCar extends Car{
 		this.mileage = mileage;
 	}
 	
+	// this adds (used), 10spaces, mileage value to 2 decimal places, and "miles" to the super's (Car) toString.
 	@Override
 	public String toString() {
 		return super.toString() + String.format("(Used) %-10.2f miles", mileage);

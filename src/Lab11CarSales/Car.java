@@ -6,6 +6,7 @@ public class Car {
 	private int year;
 	private double price;
 	
+	//used eclipse to create constructors and getters and setters
 	public Car() {
 		this.make = "";
 		this.model = "";
@@ -53,7 +54,7 @@ public class Car {
 		this.price = price;
 	}
 
-
+	// string.format is putting 10 spaces between make, model, year, and price
 	@Override
 	public String toString() {
 		return String.format("Make: %-10s Model: %-10s Year: %-10d Price: $ %-10.2f", make, model, year, price);
